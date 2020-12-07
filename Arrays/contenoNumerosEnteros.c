@@ -22,3 +22,9 @@ int main(void) {
   printf("\nLa suma de los numeros es %d", total);
   return 0;
 }
+
+
+
+
+
+
