@@ -58,7 +58,7 @@ void entradaLista(int a[], int n){
   int i;
   printf("Entrada de los elementos\n");
   for(i=0; i< n; i++){
-    printf("a[%d] = ");
-    scanf("%d", a+i);
+    printf("a[%d] = ", i+1);
+    scanf("%d", &a[i]);
   }
 }

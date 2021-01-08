@@ -1,10 +1,9 @@
-
-/*Algoritmo de ordenación por intercambio*/
+/*Algoritmo de ordenación por inserción*/
 
 #include <stdio.h>
 
 #define N 100
-void ordIntercambio(int a[], int n);
+void ordInsercion (int a[], int n );
 void imprimirLista(int a[], int n);
 void entradaLista(int a[], int n);
 
@@ -20,25 +19,26 @@ int main() {
   /*Muestra lista original*/
   printf("\nLista original de %d elementos", n);
   imprimirLista(v,n);
-  ordIntercambio(v,n);
+  ordInsercion(v,n);
   printf("\nLista ordenada de %d elementos", n);
   imprimirLista(v,n);
   return 0;
 }
 
-void ordIntercambio(int a[], int n){
+void ordInsercion (int a[], int n ){
   int i,j;
-  /*Se realiza n-1 pasadas*/
-  /*a[o],...a[n-2]*/
-  for(i=0; i<= n-2; i++){
-    /*Coloca minimo de a[i+1]..a[n-1] en a[i]*/
-    for (j = i+1; j <= n-1; j++)
-      if(a[i] > a[j]){
-        int aux;
-        aux = a[i];
-        a[i] = a[j];
-        a[j] = aux;
-      }
+  int aux;
+  for (i=1; i<n;i++){
+    /*Indice j explora la sublista a[i-1]..a[0] buscando la posición correcta del elemento destino, loa asigna a a[j]*/
+    j = i;
+    aux = a[i];
+    /*Se localiza el punto de insercion explorando hacia abajo*/
+    while(j > 0 && aux < a[j-1]){
+      /*desplazar elementos hacia arriba para hacer espacio*/
+      a[j] = a[j-1];
+      j--;
+    }
+    a[j] = aux;
   }
 }
 
@@ -55,7 +55,7 @@ void entradaLista(int a[], int n){
   int i;
   printf("Entrada de los elementos\n");
   for(i=0; i< n; i++){
-     printf("a[%d] = ", i+1);
+    printf("a[%d] = ", i+1);
     scanf("%d", &a[i]);
   }
 }
