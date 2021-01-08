@@ -1,10 +1,9 @@
-
-/*Algoritmo de ordenación por intercambio*/
+/*Algoritmo de ordenación por selccion*/
 
 #include <stdio.h>
 
 #define N 100
-void ordIntercambio(int a[], int n);
+void ordSeleccion(int a[], int n);
 void imprimirLista(int a[], int n);
 void entradaLista(int a[], int n);
 
@@ -20,25 +19,29 @@ int main() {
   /*Muestra lista original*/
   printf("\nLista original de %d elementos", n);
   imprimirLista(v,n);
-  ordIntercambio(v,n);
+  ordSeleccion(v,n);
   printf("\nLista ordenada de %d elementos", n);
   imprimirLista(v,n);
   return 0;
 }
 
-void ordIntercambio(int a[], int n){
-  int i,j;
-  /*Se realiza n-1 pasadas*/
-  /*a[o],...a[n-2]*/
-  for(i=0; i<= n-2; i++){
-    /*Coloca minimo de a[i+1]..a[n-1] en a[i]*/
-    for (j = i+1; j <= n-1; j++)
-      if(a[i] > a[j]){
-        int aux;
-        aux = a[i];
-        a[i] = a[j];
-        a[j] = aux;
-      }
+void ordSeleccion(int a[], int n){
+  int indiceMenor, i,j;
+  /*Ordenar un a[0]...a[n-2] y a[n-1] en cada pasada*/
+  for(i=0; i < n-1; i++){
+    /*Comienza con la exploración en indice i*/
+    indiceMenor = i;
+    /*Explora la sublista a[i+1]...a[n-1]*/
+    for(j= i+1; j<n; j++)
+      if(a[j] < a[indiceMenor])
+        indiceMenor = j;
+          /*Situa el elemento más pequeño en a[i]*/
+          if(i != indiceMenor){
+            int aux = a[i];
+            a[i] = a[indiceMenor];
+            a[indiceMenor] = aux;
+
+          }
   }
 }
 
