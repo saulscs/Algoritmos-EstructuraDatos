@@ -1,4 +1,4 @@
-/*Algoritmo de ordenación por metodo shell*/
+/*Algoritmo de ordenación por metodo Quicksort*/
 #include <stdio.h>
 
 #define N 100
