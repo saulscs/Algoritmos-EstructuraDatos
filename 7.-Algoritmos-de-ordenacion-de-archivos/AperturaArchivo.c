@@ -1,3 +1,5 @@
+/*Apertua de archivos*/
+
 #include<stdio.h>
  
 int main()
