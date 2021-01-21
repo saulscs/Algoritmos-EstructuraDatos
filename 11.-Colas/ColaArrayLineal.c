@@ -1,5 +1,6 @@
 /**
  * Queue implementation using array.
+ * Cola implementando el uso de un array
  */
 
 #include <stdio.h>

@@ -1,4 +1,6 @@
-/* C Program to implement circular queue using arrays  */
+/* C Program to implement circular queue using arrays  
+* Cola circular 
+*/
  
 #include<stdio.h>
 #include<stdlib.h>
